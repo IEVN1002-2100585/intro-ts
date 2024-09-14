@@ -1,7 +1,7 @@
 class Persona{
     nombre:string;
     edad:number;
-    contructor(nombre:string,edad:number){
+    constructor(nombre:string,edad:number){
         this.nombre=nombre;
         this.edad=edad;
     }
@@ -12,8 +12,8 @@ class Persona{
 }
 
 let persona:Persona;
-persona= new Persona('Juan',23);
-persona.imprimir();
+persona= new Persona('Juan', 24)
+persona.imprimir()
 
 class Dado{
     private valor:number=0;
