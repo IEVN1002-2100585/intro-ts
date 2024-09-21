@@ -1,25 +1,41 @@
 import { Distancia } from "./distancia";
 class Triangulo extends Distancia {
-    private punto1: number;
-    private punto2: number;
-    private punto3: number;
+    protected punto1: number;
+    protected punto2: number;
+    protected punto3: number;
+    protected x3: number;
+    protected y3: number;
+
+    protected triangulo:boolean;
 
     constructor(x1: number, y1: number, x2: number, y2: number, x3: number, y3: number) {
         super(x1, y1, x2, y2); 
-        this.punto1 = this.calcularDistancia(x1, y1, x2, y2);
-        this.punto2 = this.calcularDistancia(x2, y2, x3, y3);
-        this.punto3 = this.calcularDistancia(x3, y3, x1, y1);
+        this.x3=x3;
+        this.y3=y3;
+        this.punto1=0;
+        this.punto2=0;
+        this.punto3=0;
+        this.triangulo=false;
     }
 
-    public esTriangulo(): boolean {
-        return (this.punto1 + this.punto2 > this.punto3) &&
-               (this.punto2 + this.punto3 > this.punto1) &&
-               (this.punto3 + this.punto1 > this.punto2);
+
+    public esTriangulo() {
+        console.log(this.x1,this.y1);
+        this.punto1 = this.calcularDistancia(this.x1,this.y1, this.x2, this.y2);
+        this.punto2 = this.calcularDistancia(this.x1, this.y1, this.x3, this.y3);
+        this.punto3 = this.calcularDistancia(this.x2, this.y2, this.x3, this.y3);
+
+        if((this.punto1 + this.punto2 > this.punto3) &&
+        (this.punto2 + this.punto3 > this.punto1) &&
+        (this.punto3 + this.punto1 > this.punto2))
+        return this.triangulo=true
+        else 
+        return this.triangulo=false 
     }
 
     public imprimir(): void {
-
-        if (this.esTriangulo()) {
+        console.log(this.triangulo);
+        if (this.triangulo) {
             console.log("ES UN TRIÁNGULOOO :D");
         } else {
             console.log("NO ES UN TRIÁNGULO D:");
@@ -28,7 +44,8 @@ class Triangulo extends Distancia {
 }
 
 
-const triangulo1 = new Triangulo(0, 0, 3, 0, 3, 4);
+const triangulo1 = new Triangulo(0, 1, 3, 0, 3, 4);
+triangulo1.esTriangulo();
 triangulo1.imprimir();
 
 const triangulo2 = new Triangulo(0, 0, 2, 0, 4, 0);

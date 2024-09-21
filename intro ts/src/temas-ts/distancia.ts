@@ -1,8 +1,8 @@
 export class Distancia {
-    private x1: number;
-    private y1: number;
-    private x2: number;
-    private y2: number;
+    protected x1: number;
+    protected y1: number;
+    protected x2: number;
+    protected y2: number;
 
     constructor(x1: number, y1: number, x2: number, y2: number) {
         this.x1 = x1;
@@ -11,14 +11,14 @@ export class Distancia {
         this.y2 = y2;
     }
 
-    public calcularDistancia(): number {
-        const dx = this.x2 - this.x1; 
-        const dy = this.y2 - this.y1; 
+    public calcularDistancia(x1: number, y1: number, x2: number, y2: number): number {
+        const dx = x2 - x1; 
+        const dy = y2 - y1; 
         return Math.sqrt(dx * dx + dy * dy); 
     }
 
     public imprimirDistancia(): void {
-        const distancia = this.calcularDistancia();
+        const distancia = this.calcularDistancia(this.x1, this.y1, this.x2, this.y2);
         console.log(`La distancia entre (${this.x1}, ${this.y1}) y (${this.x2}, ${this.y2}) es: ${distancia.toFixed(2)}`);
     }
 }
