@@ -21,7 +21,7 @@ export class Ejemplo1Component implements OnInit{
 
 sumarNumeros():void{
   const n1=this.formulario.get('numero1')?.value;
-  const n2=this.formulario.get('numero1')?.value;
+  const n2=this.formulario.get('numero2')?.value;
   this.resultado=n1+n2;
 }
 }

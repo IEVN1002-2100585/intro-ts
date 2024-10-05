@@ -1,0 +1,19 @@
+<label for="">Escribe tu nombre:</label>
+<form [formGroup]="Cine">
+  <input type="text" formControlName="cliente">
+  <label for="">¿Cuántas personas son? </label>
+  <input type="number" formControlName="CuantosB"><br>
+
+  <label for=""><h4>¿Cuentas con una tarjeta CINECO?: </h4></label><input type="radio" id="si" formControlName="opcion" value="si">SI
+  <input type="radio" id="no" formControlName="opcion" value="no">NO<br>
+  <label for="">¿Cuántos boletos vas a comprar? 
+  <input type="number" formControlName="boletos"><br></label>
+  
+  <button (click)="Calcular()">Sumar</button>
+  <div style="text-align: center;">
+      <label for="">
+          <h3>{{Total}}</h3>
+          <h3>{{mensaje}}</h3>
+      </label>
+  </div>
+</form>
